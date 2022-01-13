@@ -4,6 +4,7 @@ class Task < ApplicationRecord
   before_save :convert_date
   belongs_to :category
   before_create :convert_date
+  validates :task_date, presence: true 
   validates :title, presence: true, length: { maximum: 50 }
   # validates :task_date_string, presence: true
   validates :description, length: { maximum: 200 }, presence: true

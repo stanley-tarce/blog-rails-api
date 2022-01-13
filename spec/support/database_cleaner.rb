@@ -2,7 +2,7 @@
 
 RSpec.configure do |config|
   config.before(:example) do
-    DatabaseCleaner.clean_with(:truncation) #Truncate before running each test
+    DatabaseCleaner.clean_with(:truncation) # Truncate before running each test
   end
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction

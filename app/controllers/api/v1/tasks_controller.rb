@@ -4,7 +4,6 @@ module Api
   module V1
     class TasksController < ApplicationController
       before_action :authenticate_api_v1_user!
-      protect_from_forgery with: :null_session, prepend: true
       def todays_tasks
         @tasks = all_tasks.where(task_date: Date.today)
         if @tasks
@@ -54,7 +53,7 @@ module Api
       end
 
       def single_task
-        task = current_api_v1_user.categories.find_by(id: params[:category_id]).tasks.find(id: params[:id])
+        task = current_api_v1_user.categories.find_by(id: params[:category_id]).tasks.find_by(id: params[:id])
       end
 
       def task_params
