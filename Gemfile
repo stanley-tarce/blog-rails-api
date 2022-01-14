@@ -47,5 +47,3 @@ gem 'factory_bot_rails'
 
 gem 'database_cleaner'
 gem 'active_model_serializers', '~> 0.10.0'
-gem 'activerecord-session_store'
-gem 'rails_same_site_cookie'
