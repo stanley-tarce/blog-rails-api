@@ -4,6 +4,7 @@ module Api
   module V1
     class CategoriesController < ApplicationController
       before_action :authenticate_api_v1_user!
+      before_action :set_csrf_cookie, only: [:index]
       def index
         render json: categories, status: 200
       end
@@ -37,9 +38,12 @@ module Api
           render json: { errors: category.errors.full_messages }, status: 422
         end
       end
+  
 
       private
-
+      def set_csrf_cookie
+        cookies.signed[:CSRF_COOKIE] = {value: form_authenticity_token, domain: 'herokuapp.com', expires: 3.days.from_now}
+      end
       def categories
         categories = current_api_v1_user.categories
       end
