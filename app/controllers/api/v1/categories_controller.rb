@@ -40,9 +40,7 @@ module Api
   
 
       private
-      def set_csrf_cookie
-        cookies[:CSRF_COOKIE] = {value: "123", domain: 'herokuapp.com', expires: 3.days.from_now}
-      end
+
       def categories
         categories = current_api_v1_user.categories
       end
