@@ -6,6 +6,6 @@ class ApplicationController < ActionController::API
   include ActionController::RequestForgeryProtection
   before_action :set_csrf_cookie
   def set_csrf_cookie
-    cookies['XSRF-TOKEN'] = {value: form_authenticity_token, domain: '.herokuapp.com', expires: 5.days.from_now, same_site: "none", secure: true}
+    cookies['XSRF-TOKEN'] = {value: form_authenticity_token, domain: '.herokuapp.com', expires: 5.days.from_now, same_site: "None", secure: true}
   end
 end
