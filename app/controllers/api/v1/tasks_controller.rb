@@ -5,7 +5,7 @@ module Api
     class TasksController < ApplicationController
       before_action :authenticate_api_v1_user!
       def todays_tasks
-        @tasks = all_tasks.where(task_date: Date.today)
+        @tasks = all_tasks.today
         if @tasks
           render json: @tasks, status: :ok
         else

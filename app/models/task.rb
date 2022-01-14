@@ -1,6 +1,7 @@
 
 class Task < ApplicationRecord
   require 'date'
+  scope :today, -> { where(:task_date => task_date == Date.today)}
   before_save :convert_date
   belongs_to :category
   before_create :convert_date
