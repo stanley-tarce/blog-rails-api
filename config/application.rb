@@ -25,7 +25,7 @@ module BlogRails
     config.load_defaults 6.1
     config.session_store :active_record_store, key: '_interslice_session'
     config.middleware.use ActionDispatch::Cookies # Required for all session management
-    config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
+    config.middleware.use ActionDispatch::Session::CookieStore
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
