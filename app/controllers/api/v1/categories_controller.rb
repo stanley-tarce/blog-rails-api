@@ -4,7 +4,6 @@ module Api
   module V1
     class CategoriesController < ApplicationController
       before_action :authenticate_api_v1_user!
-      before_action :set_csrf_cookie, only: [:index]
       def index
         render json: categories, status: 200
       end
