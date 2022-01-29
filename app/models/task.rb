@@ -1,7 +1,7 @@
 
 class Task < ApplicationRecord
   require 'date'
-  scope :today, -> { where("task_date == #{Date.today}")}
+  scope :today, (Date.today) -> { where("task_date == ?", Date.today)}
   belongs_to :category
   validates :task_date, presence: true 
   validates :title, presence: true, length: { maximum: 50 }
