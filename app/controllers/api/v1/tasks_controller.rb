@@ -8,7 +8,7 @@ module Api
       def todays_tasks
       
         if all_tasks.today.present?
-          render json: all_tasks.today, status: :ok
+          render json: all_tasks.where(task_date: Date.today), status: :ok
         else
           render json: { error: 'No tasks found' }, status: :not_found
         end
