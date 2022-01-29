@@ -6,7 +6,7 @@ module Api
     class TasksController < ApplicationController
       before_action :authenticate_api_v1_user!
       def today
-          render json: all_tasks, status: :ok
+          render json: Task.all, status: :ok
       end
 
       def index
