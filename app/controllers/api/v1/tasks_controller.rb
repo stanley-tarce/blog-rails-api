@@ -6,9 +6,9 @@ module Api
     class TasksController < ApplicationController
       before_action :authenticate_api_v1_user!
       def todays_tasks
-        @tasks = all_tasks.today
-        if @tasks
-          render json: @tasks, status: :ok
+      
+        if all_tasks.today.present?
+          render json: all_tasks.today, status: :ok
         else
           render json: { error: 'No tasks found' }, status: :not_found
         end
