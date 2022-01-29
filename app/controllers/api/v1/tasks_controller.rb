@@ -5,13 +5,8 @@ module Api
     # API for CRUD Functionalities of Tasks
     class TasksController < ApplicationController
       before_action :authenticate_api_v1_user!
-      def todays_tasks
-      
-        if all_tasks.today.present?
+      def today
           render json: all_tasks, status: :ok
-        else
-          render json: { error: 'No tasks found' }, status: :not_found
-        end
       end
 
       def index
