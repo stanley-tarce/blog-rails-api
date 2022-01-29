@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       mount_devise_token_auth_for 'User', at: 'auth'
       resources :categories do
         resources :tasks
-        get 'tasks/today', to: 'tasks#today'
+        get 'today', to: 'tasks#today'
       end      
     end
   end
