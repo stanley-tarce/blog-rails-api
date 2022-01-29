@@ -30,6 +30,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
   gem 'rspec-rails', '~> 5.0', '>= 5.0.2'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -40,10 +42,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-
 gem 'devise_token_auth'
-gem 'factory_bot_rails'
-
-gem 'database_cleaner'
 gem 'active_model_serializers', '~> 0.10.0'

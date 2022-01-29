@@ -49,7 +49,7 @@ RSpec.describe 'Tasks', type: :request do
     end
     it '4. Should update a Task' do
       patch "/api/v1/categories/#{@user.categories.first.id}/tasks/#{@user.categories.first.tasks.last.id}",
-            headers: @headers, params: { title: 'Task 991', description: 'LoremIpsums', task_date_string: '2021-12-6' }, as: :json
+            headers: @headers, params: { title: 'Task 991', description: 'LoremIpsums', task_date: '2021-12-6' }, as: :json
     end
     it '5. Should delete a Task' do
       delete "/api/v1/categories/#{@user.categories.first.id}/tasks/#{@user.categories.first.tasks.last.id}",

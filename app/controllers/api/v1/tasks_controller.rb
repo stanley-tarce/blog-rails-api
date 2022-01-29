@@ -2,6 +2,7 @@
 
 module Api
   module V1
+    # API for CRUD Functionalities of Tasks
     class TasksController < ApplicationController
       before_action :authenticate_api_v1_user!
       def todays_tasks
@@ -49,11 +50,11 @@ module Api
       private
 
       def all_tasks
-        tasks = current_api_v1_user.categories.find(params[:category_id]).tasks
+        current_api_v1_user.categories.find(params[:category_id]).tasks
       end
 
       def single_task
-        task = current_api_v1_user.categories.find_by(id: params[:category_id]).tasks.find_by(id: params[:id])
+        current_api_v1_user.categories.find_by(id: params[:category_id]).tasks.find_by(id: params[:id])
       end
 
       def task_params
