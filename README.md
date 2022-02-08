@@ -66,7 +66,6 @@ To run the test, simply do the following:
 
     rails db:migrate RAILS_ENV=test
     rspec spec or bundle exec rspec spec
-I used VCR to capture API Request because the total run of my test before was 3 minutes. Applying this method gave me 10 seconds to run 
 **RSpec Result:**
  *Finished in 29.28 seconds (files took 1.33 seconds to load)
 42 examples, 0 failures*
