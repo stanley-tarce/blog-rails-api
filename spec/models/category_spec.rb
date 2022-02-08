@@ -8,19 +8,16 @@ RSpec.describe Category, type: :model do
     @Category = User.first.categories
   end
   context 'Uniqueness of the Data' do
-    it '1. Should not duplicate Data' do
-      expect(@Category.create(name: 'Test').valid?).to eq(true)
-      expect(@Category.create(name: 'Test').valid?).to eq(false)
-    end
-    it '2. Should not be empty' do
+  
+    it '1. Should not be empty' do
       expect(@Category.create(name: nil).valid?).to eq(false)
     end
 
-    it '3. Length should be minimum of 3' do
+    it '2. Length should be minimum of 3' do
       expect(@Category.create(name: 'T').valid?).to eq(false)
     end
 
-    it '4. Length should not exceed more than 25' do
+    it '3. Length should not exceed more than 25' do
       expect(@Category.create(name: 'Hellohellohellohelloh ellohellohellohelloheloo').valid?).to eq(false)
     end
   end
