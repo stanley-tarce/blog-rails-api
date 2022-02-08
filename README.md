@@ -1,24 +1,80 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+# Blog Rails API
 
-* Configuration
+Blog Rails API is a Rails API only app for the Blog Rails App.
+### Live 
+To access the live website, click this [link](https://blog-api-stan.herokuapp.com/) 
 
-* Database creation
+### Frontend Repository
+To access the frontend repository click this [link](https://github.com/stanley-tarce/blog-react-api) 
 
-* Database initialization
+### Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-* How to run the test suite
+Clone the repository inside your local directory and change your directory to the root of the file
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+git clone https://github.com/stanley-tarce/blog-rails-api.git
+```
 
-* Deployment instructions
+### Prerequisites
+Make sure to have Ruby, Rails, NodeJs, Postgresql, and Yarn installed. The versions I used are as listed: 
 
-* ...
+    Rails 6.1.4.4
+    ruby-3.0.2
+    node v17.0.1
+    yarn 1.22.17
+    psql (PostgreSQL) 14.1 
+  ### Installing
+To get the API running, run the following command  
+
+    bundle install 
+Enable alternate role on Postgresql
+
+    sudo -u postgres psql 
+ Type this in the postresql console
+ 
+
+    ALTER USER postgres WITH PASSWORD 'postgres;
+    
+
+Setup the database by running this command
+
+    rails db:setup
+
+Or you can run this
+
+    rails db:create db:migrate 
+
+ To check the routes use this command
+ 
+
+    rails routes 
+### Server 
+Enable the server by running this command 
+
+    rails s 
+or you could run on a different server  
+
+    rails s -p <YOUR_CUSTOM_SERVER> *example 3001
+
+### RSpec Test
+To run the test, simply do the following: 
+
+    rails db:migrate RAILS_ENV=test
+    rspec spec or bundle exec rspec spec
+I used VCR to capture API Request because the total run of my test before was 3 minutes. Applying this method gave me 10 seconds to run 
+**RSpec Result:**
+ *Finished in 29.28 seconds (files took 1.33 seconds to load)
+42 examples, 0 failures*
+### Deployment
+To deploy to production, simply create an heroku account and run this on the terminal 
+
+    heroku create
+    heroku rename <YOUR_CHOSEN_NAME>
+    git add -A 
+    git commit -m <MESSAGE>
+    git push heroku 
